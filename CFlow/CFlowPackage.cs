@@ -75,11 +75,8 @@ namespace CFlow
             base.Initialize();
 
             statusService = ATServiceProvider.StatusService;
-            dte = GetService(typeof(EnvDTE.DTE)) as EnvDTE.DTE;
-
-            CFlow = GetCFlowLocation();
-            Log($"Found CFlow: { CFlow }");
-
+            dte = GetService(typeof(DTE)) as DTE;
+            
             solutionBuildManager = ServiceProvider.GlobalProvider.GetService(typeof(SVsSolutionBuildManager)) as IVsSolutionBuildManager2;
             if (solutionBuildManager != null)
                 solutionBuildManager.AdviseUpdateSolutionEvents(this, out updateSolutionEventsCookie);
@@ -95,11 +92,16 @@ namespace CFlow
         }
 
         private IStatusReportService statusService;
-        private EnvDTE.DTE dte;
+        private DTE dte;
         private IVsSolutionBuildManager2 solutionBuildManager;
         private uint updateSolutionEventsCookie;
 
-        private string CFlow;
+        private string cflow = null;
+        public string CFlow
+        {
+            get { return cflow ?? (cflow = GetCFlowLocation()); }
+            set { cflow = value; }
+        }
 
         private void Log(string message)
         {
@@ -118,7 +120,14 @@ namespace CFlow
                 
             var cflow = self.Content.Where(e => e.ContentTypeName.Equals("CFlow.Executable")).First();
 
-            return Path.Combine(self.InstallPath, cflow.RelativePath);
+            var fullPath = Path.Combine(self.InstallPath, cflow.RelativePath);
+
+            if (File.Exists(fullPath))
+                Log($"Found CFlow at '{ fullPath }'");
+            else
+                Log($"Failed to find CFlow at '{ fullPath }'");
+
+            return fullPath;
             
         }
 
