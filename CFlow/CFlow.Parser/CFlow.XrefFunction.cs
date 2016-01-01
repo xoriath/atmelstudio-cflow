@@ -19,5 +19,10 @@ namespace CFlow.Parser
             Line = line;
             Signature = signature ?? string.Empty;
         }
+
+        public override string ToString()
+        {
+            return $"{ Name }: { Signature } <{ File }>:{ Line } => { References.Count } references";
+        }
     }
 }
