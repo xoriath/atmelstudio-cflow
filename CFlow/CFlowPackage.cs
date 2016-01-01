@@ -143,23 +143,36 @@ namespace CFlow
 
         private void UpdateProject(Project project)
         {
+            // TODO: Should get resolved include files as well (to resolve IO headers)
             var files = GetFiles(project.ProjectItems);
             files = files.Where(f => Path.GetExtension(f) != ".ld").ToList();
 
-            var runner = new Runner.ReverseRunner(CFlow, files);
-            var output = runner.Run();
+            var reverse_runner = new Runner.ReverseRunner(CFlow, files);
+            var tree_runner = new Runner.TreeRunner(CFlow, files);
+            var xref_runner = new Runner.XrefRunner(CFlow, files);
 
-            Log("###########################");
-            Log(output);
-            Log("###########################");
+            var reverse_output = reverse_runner.Run();
+            var tree_output = tree_runner.Run();
+            var xref_output = xref_runner.Run();
 
-            var results = Parser.CFlowReverseParser.Parse(new List<string>(output.Split(new string[] { Environment.NewLine }, StringSplitOptions.None)));
-            foreach(var f in results)
-            {
-                Log(f.Function);
-            }
+            Log("############################# Tree  Output ###########################");
+            Log(tree_output);
+            Log("######################################################################");
+            Log("########################### Reverse Output ###########################");
+            Log(reverse_output);
+            Log("######################################################################");
+            Log("########################### XREF    Output ###########################");
+            Log(xref_output);
+            Log("######################################################################");
+
+
+            var tree_results = Parser.CFlowReverseParser.Parse(new List<string>(tree_output.Split(new string[] { Environment.NewLine }, StringSplitOptions.None)));
+            var reverse_results = Parser.CFlowReverseParser.Parse(new List<string>(reverse_output.Split(new string[] { Environment.NewLine }, StringSplitOptions.None)));
+            var xref_result_bound = Parser.CFlowXrefParser.Parse(new List<string>(xref_output.Split(new string[] { Environment.NewLine }, StringSplitOptions.None)));
+            var xref_result_unbound = Parser.CFlowXrefParser.ParseUnbound(new List<string>(xref_output.Split(new string[] { Environment.NewLine }, StringSplitOptions.None)));
+
         }
-
+        
         private static List<string> GetFiles(ProjectItems items)
         {
             var files = new List<string>();
