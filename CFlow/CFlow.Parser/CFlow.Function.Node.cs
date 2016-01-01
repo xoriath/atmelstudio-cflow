@@ -1,9 +1,7 @@
 ﻿using System.Collections.Generic;
-using System.Diagnostics;
 
 namespace CFlow.Parser
 {
-    [DebuggerDisplay("{Function.Name}")]
     public class FunctionNode
     {
         public Function Function { get; private set; }
@@ -22,8 +20,13 @@ namespace CFlow.Parser
             Function = function;
             Children = children;
         }
+
+        public override string ToString()
+        {
+            return $"{ Function } => { Children.Count } children";
+        }
     }
-    [DebuggerDisplay("{Function.Name}")]
+
     public class FunctionReverseNode
     {
         public Function Function { get; private set; }
@@ -45,6 +48,11 @@ namespace CFlow.Parser
         {
             Function = function;
             Parents = parents;
+        }
+
+        public override string ToString()
+        {
+            return $"{ Function } => { Parents.Count } parents";
         }
     }
 }

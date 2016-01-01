@@ -33,5 +33,10 @@
             File = file;
             Line = line;
         }
+
+        public override string ToString()
+        {
+            return $"{ Name }: { Signature } <{ File }>:{ Line }";
+        }
     }
 }
