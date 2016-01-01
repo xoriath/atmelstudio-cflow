@@ -103,13 +103,13 @@ namespace CFlow
             set { cflow = value; }
         }
 
-        private void Log(string message)
+        private void Log(string message, StatusSeverity severity = StatusSeverity.INFO)
         {
-            statusService.WriteOutputWindow(message, "CFlow", StatusSeverity.INFO);
+            statusService.WriteOutputWindow(message, "CFlow", severity);
         }
-        private void Log(object o)
+        private void Log(object o, StatusSeverity severity = StatusSeverity.INFO)
         {
-            statusService.WriteOutputWindow(o.ToString(), "CFlow", StatusSeverity.INFO);
+            Log(o.ToString(), severity);
         }
 
         private string GetCFlowLocation()
