@@ -1,0 +1,41 @@
+hash.o: hash.c ../config.h hash.h stdio.h c:\mingw\include\stdio.h \
+ c:\mingw\include\_mingw.h \
+ c:\mingw\lib\gcc\mingw32\4.8.1\include\stddef.h \
+ c:\mingw\lib\gcc\mingw32\4.8.1\include\stdarg.h \
+ c:\mingw\include\sys\types.h \
+ c:\mingw\lib\gcc\mingw32\4.8.1\include\stdbool.h bitrotate.h \
+ c:\mingw\include\limits.h \
+ c:\mingw\lib\gcc\mingw32\4.8.1\include\stdint.h \
+ c:\mingw\include\stdint.h xalloc.h stdlib.h c:\mingw\include\stdlib.h
+
+../config.h:
+
+hash.h:
+
+stdio.h:
+
+c:\mingw\include\stdio.h:
+
+c:\mingw\include\_mingw.h:
+
+c:\mingw\lib\gcc\mingw32\4.8.1\include\stddef.h:
+
+c:\mingw\lib\gcc\mingw32\4.8.1\include\stdarg.h:
+
+c:\mingw\include\sys\types.h:
+
+c:\mingw\lib\gcc\mingw32\4.8.1\include\stdbool.h:
+
+bitrotate.h:
+
+c:\mingw\include\limits.h:
+
+c:\mingw\lib\gcc\mingw32\4.8.1\include\stdint.h:
+
+c:\mingw\include\stdint.h:
+
+xalloc.h:
+
+stdlib.h:
+
+c:\mingw\include\stdlib.h:

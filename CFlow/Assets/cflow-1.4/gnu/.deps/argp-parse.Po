@@ -1,0 +1,79 @@
+argp-parse.o: argp-parse.c ../config.h alloca.h \
+ c:\mingw\lib\gcc\mingw32\4.8.1\include\stddef.h stdlib.h \
+ c:\mingw\include\stdlib.h c:\mingw\include\_mingw.h \
+ c:\mingw\lib\gcc\mingw32\4.8.1\include\stdint.h \
+ c:\mingw\include\stdint.h string.h c:\mingw\include\string.h unistd.h \
+ c:\mingw\include\unistd.h c:\mingw\include\io.h \
+ c:\mingw\include\sys\types.h c:\mingw\include\process.h getopt.h \
+ c:\mingw\include\getopt.h c:\mingw\include\ctype.h \
+ c:\mingw\include\parts\time.h c:\mingw\include\limits.h getopt_int.h \
+ gettext.h c:\mingw\include\libintl.h c:\mingw\include\locale.h stdio.h \
+ c:\mingw\include\stdio.h c:\mingw\lib\gcc\mingw32\4.8.1\include\stdarg.h \
+ argp.h errno.h c:\mingw\include\errno.h argp-namefrob.h dirname.h \
+ c:\mingw\lib\gcc\mingw32\4.8.1\include\stdbool.h
+
+../config.h:
+
+alloca.h:
+
+c:\mingw\lib\gcc\mingw32\4.8.1\include\stddef.h:
+
+stdlib.h:
+
+c:\mingw\include\stdlib.h:
+
+c:\mingw\include\_mingw.h:
+
+c:\mingw\lib\gcc\mingw32\4.8.1\include\stdint.h:
+
+c:\mingw\include\stdint.h:
+
+string.h:
+
+c:\mingw\include\string.h:
+
+unistd.h:
+
+c:\mingw\include\unistd.h:
+
+c:\mingw\include\io.h:
+
+c:\mingw\include\sys\types.h:
+
+c:\mingw\include\process.h:
+
+getopt.h:
+
+c:\mingw\include\getopt.h:
+
+c:\mingw\include\ctype.h:
+
+c:\mingw\include\parts\time.h:
+
+c:\mingw\include\limits.h:
+
+getopt_int.h:
+
+gettext.h:
+
+c:\mingw\include\libintl.h:
+
+c:\mingw\include\locale.h:
+
+stdio.h:
+
+c:\mingw\include\stdio.h:
+
+c:\mingw\lib\gcc\mingw32\4.8.1\include\stdarg.h:
+
+argp.h:
+
+errno.h:
+
+c:\mingw\include\errno.h:
+
+argp-namefrob.h:
+
+dirname.h:
+
+c:\mingw\lib\gcc\mingw32\4.8.1\include\stdbool.h:

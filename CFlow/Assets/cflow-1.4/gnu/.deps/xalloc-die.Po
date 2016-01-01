@@ -1,0 +1,46 @@
+xalloc-die.o: xalloc-die.c ../config.h xalloc.h \
+ c:\mingw\lib\gcc\mingw32\4.8.1\include\stddef.h stdlib.h \
+ c:\mingw\include\stdlib.h c:\mingw\include\_mingw.h \
+ c:\mingw\lib\gcc\mingw32\4.8.1\include\stdint.h \
+ c:\mingw\include\stdint.h error.h exitfail.h gettext.h \
+ c:\mingw\include\libintl.h c:\mingw\include\locale.h stdio.h \
+ c:\mingw\include\stdio.h c:\mingw\lib\gcc\mingw32\4.8.1\include\stdarg.h \
+ c:\mingw\include\sys\types.h string.h c:\mingw\include\string.h
+
+../config.h:
+
+xalloc.h:
+
+c:\mingw\lib\gcc\mingw32\4.8.1\include\stddef.h:
+
+stdlib.h:
+
+c:\mingw\include\stdlib.h:
+
+c:\mingw\include\_mingw.h:
+
+c:\mingw\lib\gcc\mingw32\4.8.1\include\stdint.h:
+
+c:\mingw\include\stdint.h:
+
+error.h:
+
+exitfail.h:
+
+gettext.h:
+
+c:\mingw\include\libintl.h:
+
+c:\mingw\include\locale.h:
+
+stdio.h:
+
+c:\mingw\include\stdio.h:
+
+c:\mingw\lib\gcc\mingw32\4.8.1\include\stdarg.h:
+
+c:\mingw\include\sys\types.h:
+
+string.h:
+
+c:\mingw\include\string.h:

@@ -1,0 +1,55 @@
+argp-fs-xinl.o: argp-fs-xinl.c ../config.h argp-fmtstream.h stdio.h \
+ c:\mingw\include\stdio.h c:\mingw\include\_mingw.h \
+ c:\mingw\lib\gcc\mingw32\4.8.1\include\stddef.h \
+ c:\mingw\lib\gcc\mingw32\4.8.1\include\stdarg.h \
+ c:\mingw\include\sys\types.h string.h c:\mingw\include\string.h unistd.h \
+ c:\mingw\include\unistd.h c:\mingw\include\io.h \
+ c:\mingw\include\process.h \
+ c:\mingw\lib\gcc\mingw32\4.8.1\include\stdint.h \
+ c:\mingw\include\stdint.h getopt.h c:\mingw\include\getopt.h \
+ c:\mingw\include\ctype.h c:\mingw\include\parts\time.h stdlib.h \
+ c:\mingw\include\stdlib.h
+
+../config.h:
+
+argp-fmtstream.h:
+
+stdio.h:
+
+c:\mingw\include\stdio.h:
+
+c:\mingw\include\_mingw.h:
+
+c:\mingw\lib\gcc\mingw32\4.8.1\include\stddef.h:
+
+c:\mingw\lib\gcc\mingw32\4.8.1\include\stdarg.h:
+
+c:\mingw\include\sys\types.h:
+
+string.h:
+
+c:\mingw\include\string.h:
+
+unistd.h:
+
+c:\mingw\include\unistd.h:
+
+c:\mingw\include\io.h:
+
+c:\mingw\include\process.h:
+
+c:\mingw\lib\gcc\mingw32\4.8.1\include\stdint.h:
+
+c:\mingw\include\stdint.h:
+
+getopt.h:
+
+c:\mingw\include\getopt.h:
+
+c:\mingw\include\ctype.h:
+
+c:\mingw\include\parts\time.h:
+
+stdlib.h:
+
+c:\mingw\include\stdlib.h:

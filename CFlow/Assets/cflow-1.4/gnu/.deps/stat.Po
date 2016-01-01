@@ -1,0 +1,38 @@
+stat.o: stat.c ../config.h c:\mingw\include\sys\types.h \
+ c:\mingw\include\_mingw.h \
+ c:\mingw\lib\gcc\mingw32\4.8.1\include\stddef.h sys/stat.h \
+ c:\mingw\include\sys\stat.h time.h c:\mingw\include\time.h \
+ c:\mingw\include\io.h errno.h c:\mingw\include\errno.h \
+ c:\mingw\include\limits.h \
+ c:\mingw\lib\gcc\mingw32\4.8.1\include\stdbool.h string.h \
+ c:\mingw\include\string.h
+
+../config.h:
+
+c:\mingw\include\sys\types.h:
+
+c:\mingw\include\_mingw.h:
+
+c:\mingw\lib\gcc\mingw32\4.8.1\include\stddef.h:
+
+sys/stat.h:
+
+c:\mingw\include\sys\stat.h:
+
+time.h:
+
+c:\mingw\include\time.h:
+
+c:\mingw\include\io.h:
+
+errno.h:
+
+c:\mingw\include\errno.h:
+
+c:\mingw\include\limits.h:
+
+c:\mingw\lib\gcc\mingw32\4.8.1\include\stdbool.h:
+
+string.h:
+
+c:\mingw\include\string.h:

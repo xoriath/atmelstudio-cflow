@@ -1,0 +1,59 @@
+argcv.o: argcv.c ../config.h c:\mingw\include\ctype.h \
+ c:\mingw\include\_mingw.h \
+ c:\mingw\lib\gcc\mingw32\4.8.1\include\stddef.h ../gnu/errno.h \
+ c:\mingw\include\errno.h argcv.h ../gnu/stdio.h c:\mingw\include\stdio.h \
+ c:\mingw\lib\gcc\mingw32\4.8.1\include\stdarg.h \
+ c:\mingw\include\sys\types.h ../gnu/stdlib.h c:\mingw\include\stdlib.h \
+ c:\mingw\lib\gcc\mingw32\4.8.1\include\stdint.h \
+ c:\mingw\include\stdint.h ../gnu/unistd.h c:\mingw\include\unistd.h \
+ c:\mingw\include\io.h c:\mingw\include\process.h ../gnu/getopt.h \
+ c:\mingw\include\getopt.h c:\mingw\include\parts\time.h ../gnu/string.h \
+ c:\mingw\include\string.h
+
+../config.h:
+
+c:\mingw\include\ctype.h:
+
+c:\mingw\include\_mingw.h:
+
+c:\mingw\lib\gcc\mingw32\4.8.1\include\stddef.h:
+
+../gnu/errno.h:
+
+c:\mingw\include\errno.h:
+
+argcv.h:
+
+../gnu/stdio.h:
+
+c:\mingw\include\stdio.h:
+
+c:\mingw\lib\gcc\mingw32\4.8.1\include\stdarg.h:
+
+c:\mingw\include\sys\types.h:
+
+../gnu/stdlib.h:
+
+c:\mingw\include\stdlib.h:
+
+c:\mingw\lib\gcc\mingw32\4.8.1\include\stdint.h:
+
+c:\mingw\include\stdint.h:
+
+../gnu/unistd.h:
+
+c:\mingw\include\unistd.h:
+
+c:\mingw\include\io.h:
+
+c:\mingw\include\process.h:
+
+../gnu/getopt.h:
+
+c:\mingw\include\getopt.h:
+
+c:\mingw\include\parts\time.h:
+
+../gnu/string.h:
+
+c:\mingw\include\string.h:

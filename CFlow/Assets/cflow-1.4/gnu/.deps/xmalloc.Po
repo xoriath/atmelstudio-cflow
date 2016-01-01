@@ -1,0 +1,25 @@
+xmalloc.o: xmalloc.c ../config.h xalloc.h \
+ c:\mingw\lib\gcc\mingw32\4.8.1\include\stddef.h stdlib.h \
+ c:\mingw\include\stdlib.h c:\mingw\include\_mingw.h \
+ c:\mingw\lib\gcc\mingw32\4.8.1\include\stdint.h \
+ c:\mingw\include\stdint.h string.h c:\mingw\include\string.h
+
+../config.h:
+
+xalloc.h:
+
+c:\mingw\lib\gcc\mingw32\4.8.1\include\stddef.h:
+
+stdlib.h:
+
+c:\mingw\include\stdlib.h:
+
+c:\mingw\include\_mingw.h:
+
+c:\mingw\lib\gcc\mingw32\4.8.1\include\stdint.h:
+
+c:\mingw\include\stdint.h:
+
+string.h:
+
+c:\mingw\include\string.h:

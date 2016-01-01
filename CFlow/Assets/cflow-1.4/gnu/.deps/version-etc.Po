@@ -1,0 +1,42 @@
+version-etc.o: version-etc.c ../config.h version-etc.h \
+ c:\mingw\lib\gcc\mingw32\4.8.1\include\stdarg.h stdio.h \
+ c:\mingw\include\stdio.h c:\mingw\include\_mingw.h \
+ c:\mingw\lib\gcc\mingw32\4.8.1\include\stddef.h \
+ c:\mingw\include\sys\types.h stdlib.h c:\mingw\include\stdlib.h \
+ c:\mingw\lib\gcc\mingw32\4.8.1\include\stdint.h \
+ c:\mingw\include\stdint.h gettext.h c:\mingw\include\libintl.h \
+ c:\mingw\include\locale.h string.h c:\mingw\include\string.h
+
+../config.h:
+
+version-etc.h:
+
+c:\mingw\lib\gcc\mingw32\4.8.1\include\stdarg.h:
+
+stdio.h:
+
+c:\mingw\include\stdio.h:
+
+c:\mingw\include\_mingw.h:
+
+c:\mingw\lib\gcc\mingw32\4.8.1\include\stddef.h:
+
+c:\mingw\include\sys\types.h:
+
+stdlib.h:
+
+c:\mingw\include\stdlib.h:
+
+c:\mingw\lib\gcc\mingw32\4.8.1\include\stdint.h:
+
+c:\mingw\include\stdint.h:
+
+gettext.h:
+
+c:\mingw\include\libintl.h:
+
+c:\mingw\include\locale.h:
+
+string.h:
+
+c:\mingw\include\string.h:

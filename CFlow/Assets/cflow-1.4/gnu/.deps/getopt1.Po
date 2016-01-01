@@ -1,0 +1,30 @@
+getopt1.o: getopt1.c ../config.h getopt.h getopt.h \
+ c:\mingw\include\getopt.h c:\mingw\include\_mingw.h \
+ c:\mingw\include\ctype.h c:\mingw\lib\gcc\mingw32\4.8.1\include\stddef.h \
+ getopt_int.h stdio.h c:\mingw\include\stdio.h \
+ c:\mingw\lib\gcc\mingw32\4.8.1\include\stdarg.h \
+ c:\mingw\include\sys\types.h
+
+../config.h:
+
+getopt.h:
+
+getopt.h:
+
+c:\mingw\include\getopt.h:
+
+c:\mingw\include\_mingw.h:
+
+c:\mingw\include\ctype.h:
+
+c:\mingw\lib\gcc\mingw32\4.8.1\include\stddef.h:
+
+getopt_int.h:
+
+stdio.h:
+
+c:\mingw\include\stdio.h:
+
+c:\mingw\lib\gcc\mingw32\4.8.1\include\stdarg.h:
+
+c:\mingw\include\sys\types.h:
