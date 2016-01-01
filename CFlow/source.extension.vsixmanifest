@@ -9,7 +9,7 @@
     <ReleaseNotes>https://github.com/xoriath/atmelstudio-cflow</ReleaseNotes>
   </Metadata>
   <Installation>
-    <InstallationTarget Id="Atmel.AtmelStudio" Version="7.0" />
+    <InstallationTarget Id="AtmelStudio" Version="7.0" />
   </Installation>
   <Dependencies>
     <Dependency Id="Microsoft.Framework.NDP" DisplayName="Microsoft .NET Framework" d:Source="Manual" Version="[4.5,)" />
