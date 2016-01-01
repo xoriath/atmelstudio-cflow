@@ -9,14 +9,27 @@ namespace CFlow.Runner
     public abstract class AbstractRunner
     {
         private string CFlow;
+
+        private string WorkingDir;
+
         public List<string> Files { get; private set; }
 
         public AbstractRunner(string cflow, List<string> files)
         {
             CFlow = cflow;
             Files = files;
-        }
 
+            var MatchingChars =
+                from len in Enumerable.Range(0, Files.Min(s => s.Length)).Reverse()
+                let possibleMatch = Files.First().Substring(0, len)
+                where Files.All(f => f.StartsWith(possibleMatch))
+                select possibleMatch;
+
+            WorkingDir = Path.GetDirectoryName(MatchingChars.First());
+
+            Files = Files.Select(f => f.Remove(0, WorkingDir.Length + 1)).ToList();
+        }
+        
         public string Run()
         {
             var tempFile = Path.Combine(Path.GetTempPath(), Path.GetRandomFileName());
@@ -25,13 +38,17 @@ namespace CFlow.Runner
                 Arguments = GetArguments(tempFile),
                 FileName = CFlow,
                 UseShellExecute = false,
-                CreateNoWindow = true,
+                CreateNoWindow = false,
+                WorkingDirectory = WorkingDir
             };
 
             var process = new Process { StartInfo = startInfo };
             process.Start();
 
             process.WaitForExit();
+
+            if (process.ExitCode != 0)
+                return string.Empty;
 
             var result = File.ReadAllText(tempFile);
             File.Delete(tempFile);
