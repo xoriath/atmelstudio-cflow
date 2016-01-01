@@ -3,17 +3,21 @@
   <Metadata>
     <Identity Id="CFlow.Morten Engelhardt Olsen.d8f9f542-e05d-4939-a76e-73211eca9cda" Version="1.0" Language="en-US" Publisher="Morten Engelhardt Olsen" />
     <DisplayName>CFlow</DisplayName>
-    <Description>Empty VSIX Project.</Description>
+    <Description xml:space="preserve">GNU CFlow intergration for Atmel Studio</Description>
+    <MoreInfo>https://github.com/xoriath/atmelstudio-cflow</MoreInfo>
+    <GettingStartedGuide>https://github.com/xoriath/atmelstudio-cflow</GettingStartedGuide>
+    <ReleaseNotes>https://github.com/xoriath/atmelstudio-cflow</ReleaseNotes>
   </Metadata>
   <Installation>
-    <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[14.0]" />
+    <InstallationTarget Id="Atmel.AtmelStudio" Version="7.0" />
   </Installation>
   <Dependencies>
     <Dependency Id="Microsoft.Framework.NDP" DisplayName="Microsoft .NET Framework" d:Source="Manual" Version="[4.5,)" />
     <Dependency Id="Microsoft.VisualStudio.MPF.14.0" DisplayName="Visual Studio MPF 14.0" d:Source="Installed" Version="[14.0]" />
   </Dependencies>
   <Assets>
-  
+
     <Asset Type="Microsoft.VisualStudio.VsPackage" d:Source="Project" d:ProjectName="%CurrentProject%" Path="|%CurrentProject%;PkgdefProjectOutputGroup|" />
+    <Asset Type="CFlow.Executable" d:Source="File" Path="CFlow.Assets\cflow.exe" />
   </Assets>
 </PackageManifest>
