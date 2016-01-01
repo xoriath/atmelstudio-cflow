@@ -187,15 +187,15 @@ namespace CFlow
             return files;
         }
 
-        public IList<EnvDTE.Project> Projects()
+        public IList<Project> Projects()
         {
             EnvDTE.Projects projects = dte.Solution.Projects;
 
-            var list = new List<EnvDTE.Project>();
+            var list = new List<Project>();
             
             foreach(var item in projects)
             {
-                var project = item as EnvDTE.Project;
+                var project = item as Project;
                 if (project == null)
                     continue;
 
@@ -208,9 +208,9 @@ namespace CFlow
             return list;
         }
 
-        private static IEnumerable<EnvDTE.Project> GetSolutionFolderProjects(EnvDTE.Project solutionFolder)
+        private static IEnumerable<Project> GetSolutionFolderProjects(Project solutionFolder)
         {
-            var list = new List<EnvDTE.Project>();
+            var list = new List<Project>();
             for (var i = 1; i <= solutionFolder.ProjectItems.Count; i++)
             {
                 var subProject = solutionFolder.ProjectItems.Item(i).SubProject;
