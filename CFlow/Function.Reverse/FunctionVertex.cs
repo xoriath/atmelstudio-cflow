@@ -1,8 +1,10 @@
 ﻿using CFlow.Parser;
 
+using GraphX.PCL.Common.Models;
+
 namespace CFlow
 {
-    public class FunctionVertex
+    public class FunctionVertex : VertexBase
     {
         public FunctionNode FunctionNode { get; private set; }
 

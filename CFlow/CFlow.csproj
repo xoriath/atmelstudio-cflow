@@ -69,9 +69,10 @@
     <Compile Include="CFlow.Parser\CFlow.XrefParser.cs" />
     <Compile Include="Function.Reverse\FunctionEdge.cs" />
     <Compile Include="Function.Reverse\FunctionGraph.cs" />
-    <Compile Include="Function.Reverse\FunctionGraphLayout.cs" />
+    <Compile Include="Function.Reverse\FunctionGraphArea.cs" />
     <Compile Include="Function.Reverse\FunctionVertex.cs" />
     <Compile Include="Function.Reverse\FunctionViewModel.cs" />
+    <Compile Include="Function.Reverse\LogicCore.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="CFlow.Parser\CFlow.XrefFunction.cs" />
     <Compile Include="Function.Reverse\ReverseFunctionWindow.cs" />
@@ -459,12 +460,16 @@
     <Reference Include="EnvDTE90, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
       <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
-    <Reference Include="GraphSharp, Version=1.0.2.0, Culture=neutral, PublicKeyToken=f9c24778325a6b82, processorArchitecture=MSIL">
-      <HintPath>..\packages\GraphSharp.1.0.2.0\lib\net35\GraphSharp.dll</HintPath>
+    <Reference Include="GraphX.Controls, Version=2.2.0.0, Culture=neutral, PublicKeyToken=bab23663f80c9e76, processorArchitecture=MSIL">
+      <HintPath>..\packages\GraphX.2.2.0.2\lib\net40-client\GraphX.Controls.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="GraphSharp.Controls, Version=1.0.2.0, Culture=neutral, PublicKeyToken=f9c24778325a6b82, processorArchitecture=MSIL">
-      <HintPath>..\packages\GraphSharp.1.0.2.0\lib\net35\GraphSharp.Controls.dll</HintPath>
+    <Reference Include="GraphX.PCL.Common, Version=2.2.0.0, Culture=neutral, PublicKeyToken=a6cdb671d651b60a, processorArchitecture=MSIL">
+      <HintPath>..\packages\GraphX.2.2.0.2\lib\net40-client\GraphX.PCL.Common.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="GraphX.PCL.Logic, Version=2.2.0.0, Culture=neutral, PublicKeyToken=3b65ef85075e278f, processorArchitecture=MSIL">
+      <HintPath>..\packages\GraphX.2.2.0.2\lib\net40-client\GraphX.PCL.Logic.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.Build.Framework" />
@@ -573,24 +578,20 @@
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
-    <Reference Include="QuickGraph, Version=3.3.51106.0, Culture=neutral, PublicKeyToken=f3fb40175eec2af3, processorArchitecture=MSIL">
-      <HintPath>..\packages\QuickGraph.3.3.51106.0\lib\net35\QuickGraph.dll</HintPath>
+    <Reference Include="QuickGraph, Version=3.6.61114.0, Culture=neutral, PublicKeyToken=f3fb40175eec2af3, processorArchitecture=MSIL">
+      <HintPath>..\packages\QuickGraphPCL.3.6.61114.2\lib\net40-client\QuickGraph.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="QuickGraph.Data, Version=3.3.51106.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\QuickGraph.3.3.51106.0\lib\net35\QuickGraph.Data.dll</HintPath>
+    <Reference Include="QuickGraph.Data, Version=3.6.61114.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\QuickGraphPCL.3.6.61114.2\lib\net40-client\QuickGraph.Data.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="QuickGraph.Data.Contracts, Version=3.3.51106.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\QuickGraph.3.3.51106.0\lib\net35\CodeContracts\QuickGraph.Data.Contracts.dll</HintPath>
+    <Reference Include="QuickGraph.Graphviz, Version=3.6.61114.0, Culture=neutral, PublicKeyToken=f3fb40175eec2af3, processorArchitecture=MSIL">
+      <HintPath>..\packages\QuickGraphPCL.3.6.61114.2\lib\net40-client\QuickGraph.Graphviz.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="QuickGraph.Graphviz, Version=3.3.51106.0, Culture=neutral, PublicKeyToken=f3fb40175eec2af3, processorArchitecture=MSIL">
-      <HintPath>..\packages\QuickGraph.3.3.51106.0\lib\net35\QuickGraph.Graphviz.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="QuickGraph.Graphviz.Contracts, Version=3.3.51106.0, Culture=neutral, PublicKeyToken=f3fb40175eec2af3, processorArchitecture=MSIL">
-      <HintPath>..\packages\QuickGraph.3.3.51106.0\lib\net35\CodeContracts\QuickGraph.Graphviz.Contracts.dll</HintPath>
+    <Reference Include="QuickGraph.Serialization, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\QuickGraphPCL.3.6.61114.2\lib\net40-client\QuickGraph.Serialization.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="stdole, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
@@ -606,10 +607,6 @@
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml" />
     <Reference Include="WindowsBase" />
-    <Reference Include="WPFExtensions, Version=1.0.3437.34043, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\WPFExtensions.1.0.0\lib\WPFExtensions.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="VSPackage.resx">

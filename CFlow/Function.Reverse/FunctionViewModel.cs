@@ -4,6 +4,8 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using CFlow.Parser;
 using System.Linq;
+using GraphX.PCL.Common.Enums;
+using GraphX.PCL.Logic.Algorithms.LayoutAlgorithms;
 
 namespace CFlow
 {
@@ -16,11 +18,24 @@ namespace CFlow
             FunctionRootNode = functionRootNode;
             Graph = new FunctionGraph(true);
 
-            //AddTree();
-            
+            AddTree();
 
-            //Pick a default Layout Algorithm Type
-            LayoutAlgorithmType = "LinLog";
+            LogicCore = new LogicCore { Graph = Graph };
+
+            LogicCore.DefaultLayoutAlgorithm = LayoutAlgorithmTypeEnum.KK;
+
+            LogicCore.DefaultLayoutAlgorithmParams = LogicCore.AlgorithmFactory.CreateLayoutParameters(LayoutAlgorithmTypeEnum.KK);
+
+            ((KKLayoutParameters)LogicCore.DefaultLayoutAlgorithmParams).MaxIterations = 100;
+
+            LogicCore.DefaultOverlapRemovalAlgorithm = OverlapRemovalAlgorithmTypeEnum.FSA;
+
+            LogicCore.DefaultOverlapRemovalAlgorithmParams.HorizontalGap = 50;
+            LogicCore.DefaultOverlapRemovalAlgorithmParams.VerticalGap = 50;
+
+            LogicCore.DefaultEdgeRoutingAlgorithm = EdgeRoutingAlgorithmTypeEnum.SimpleER;
+
+            LogicCore.AsyncAlgorithmCompute = false;
         }
 
         private void AddTree()
@@ -28,7 +43,7 @@ namespace CFlow
             var vertex = new FunctionVertex(FunctionRootNode);
             Graph.AddVertex(vertex);
 
-            //AddSubTree(vertex);
+            AddSubTree(vertex);
         }
 
         private void AddSubTree(FunctionVertex vertex)
@@ -43,20 +58,7 @@ namespace CFlow
                 AddSubTree(childVertex);
             }
         }
-
-        private void AddAlgorithmTypes()
-        {
-            layoutAlgorithmTypes.Add("BoundedFR");
-            layoutAlgorithmTypes.Add("Circular");
-            layoutAlgorithmTypes.Add("CompoundFDP");
-            layoutAlgorithmTypes.Add("EfficientSugiyama");
-            layoutAlgorithmTypes.Add("FR");
-            layoutAlgorithmTypes.Add("ISOM");
-            layoutAlgorithmTypes.Add("KK");
-            layoutAlgorithmTypes.Add("LinLog");
-            layoutAlgorithmTypes.Add("Tree");
-        }
-
+        
         private FunctionEdge AddNewGraphEdge(FunctionVertex from, FunctionVertex to)
         {
             var id = $" { from.Name } - { to.Name }";
@@ -67,24 +69,7 @@ namespace CFlow
             return edge;
         }
 
-
-        private List<string> layoutAlgorithmTypes = new List<string>();
-        public List<string> LayoutAlgorithmTypes
-        {
-            get { return layoutAlgorithmTypes; }
-        }
-
-        private string layoutAlgorithmType;
-        public string LayoutAlgorithmType
-        {
-            get { return layoutAlgorithmType; }
-            set
-            {
-                layoutAlgorithmType = value;
-                NotifyPropertyChanged();
-            }
-        }
-
+        
         private FunctionGraph graph;
         public FunctionGraph Graph
         {
@@ -92,6 +77,17 @@ namespace CFlow
             set
             {
                 graph = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+        private LogicCore logicCore;
+        public LogicCore LogicCore
+        {
+            get { return logicCore; }
+            set
+            {
+                logicCore = value;
                 NotifyPropertyChanged();
             }
         }

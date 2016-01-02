@@ -1,8 +1,8 @@
-﻿using QuickGraph;
+﻿using GraphX.PCL.Common.Models;
 
 namespace CFlow
 {
-    public class FunctionEdge : Edge<FunctionVertex>
+    public class FunctionEdge : EdgeBase<FunctionVertex>
     {
         public string ID
         {

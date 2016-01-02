@@ -101,7 +101,10 @@ namespace CFlow
             }
 
             IVsWindowFrame windowFrame = (IVsWindowFrame)window.Frame;
-            Microsoft.VisualStudio.ErrorHandler.ThrowOnFailure(windowFrame.Show());
+
+            var HRESULT = windowFrame.Show();
+
+            Microsoft.VisualStudio.ErrorHandler.ThrowOnFailure(HRESULT);
         }
     }
 }
