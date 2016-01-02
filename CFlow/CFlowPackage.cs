@@ -134,7 +134,7 @@ namespace CFlow
         private void UpdateProject(string name)
         {
             Log($"Build finished notification for '{ name }'");
-            var projects = Projects();
+            var projects = VSHelper.GetProjects(dte);
 
             var project = projects.Where(p => p.Name.Equals(name)).First();
 
@@ -144,7 +144,7 @@ namespace CFlow
         private void UpdateProject(Project project)
         {
             // TODO: Should get resolved include files as well (to resolve IO headers)
-            var files = GetFiles(project.ProjectItems);
+            var files = VSHelper.GetFiles(project);
             files = files.Where(f => Path.GetExtension(f) != ".ld").ToList();
 
             var reverse_runner = new Runner.ReverseRunner(CFlow, files);
@@ -173,59 +173,7 @@ namespace CFlow
 
         }
         
-        private static List<string> GetFiles(ProjectItems items)
-        {
-            var files = new List<string>();
-            foreach (var item in items)
-            {
-                var file = (ProjectItem)item;
-                if (File.Exists(file.FileNames[0]))
-                    files.Add(file.FileNames[0]);
-                else if (file.ProjectItems != null && file.ProjectItems.Count != 0)
-                    files.AddRange(GetFiles(file.ProjectItems));
-            }
-            return files;
-        }
-
-        public IList<Project> Projects()
-        {
-            EnvDTE.Projects projects = dte.Solution.Projects;
-
-            var list = new List<Project>();
-            
-            foreach(var item in projects)
-            {
-                var project = item as Project;
-                if (project == null)
-                    continue;
-
-                if (project.Kind == EnvDTE80.ProjectKinds.vsProjectKindSolutionFolder)
-                    list.AddRange(GetSolutionFolderProjects(project));
-                else
-                    list.Add(project);
-            }
-
-            return list;
-        }
-
-        private static IEnumerable<Project> GetSolutionFolderProjects(Project solutionFolder)
-        {
-            var list = new List<Project>();
-            for (var i = 1; i <= solutionFolder.ProjectItems.Count; i++)
-            {
-                var subProject = solutionFolder.ProjectItems.Item(i).SubProject;
-                if (subProject == null)
-                    continue;
-
-                // If this is another solution folder, do a recursive call, otherwise add
-                if (subProject.Kind == EnvDTE80.ProjectKinds.vsProjectKindSolutionFolder)
-                    list.AddRange(GetSolutionFolderProjects(subProject));
-                else
-                    list.Add(subProject);
-            }
-
-            return list;
-        }
+        
 
 
         int IVsUpdateSolutionEvents2.UpdateSolution_Begin(ref int pfCancelUpdate)
@@ -265,8 +213,8 @@ namespace CFlow
             pHierProj.GetProperty((uint)VSConstants.VSITEMID.Root, (int)__VSHPROPID.VSHPROPID_Name, out o);
 
             var name = o as string;
-
-            UpdateProject(name);
+            if (!string.IsNullOrEmpty(name))
+                UpdateProject(name);
 
             return VSConstants.S_OK;
         }

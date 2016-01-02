@@ -69,6 +69,7 @@
     <Compile Include="CFlow.Parser\CFlow.XrefParser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="CFlow.Parser\CFlow.XrefFunction.cs" />
+    <Compile Include="VSHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="CFlow.Assets\cflow-1.4\ABOUT-NLS" />
