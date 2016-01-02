@@ -1,4 +1,5 @@
-﻿using EnvDTE;
+﻿using Atmel.Studio.Services;
+using EnvDTE;
 using System.Collections.Generic;
 using System.IO;
 
@@ -68,6 +69,15 @@ namespace CFlow
         public static List<string> GetFiles(Project project)
         {
             return GetFiles(project.ProjectItems);
+        }
+
+        public static void Log(string message, StatusSeverity severity = StatusSeverity.INFO)
+        {
+            ATServiceProvider.StatusService.WriteOutputWindow(message, "CFlow", severity);
+        }
+        public static void Log(object o, StatusSeverity severity = StatusSeverity.INFO)
+        {
+            Log(o.ToString(), severity);
         }
 
     }

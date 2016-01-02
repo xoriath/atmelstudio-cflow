@@ -46,6 +46,8 @@ namespace CFlow
     [ProvideAutoLoad(UIContextGuids80.NoSolution)]
     [Guid(PackageGuidString)]
     [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1650:ElementDocumentationMustBeSpelledCorrectly", Justification = "pkgdef, VS and vsixmanifest are valid VS terms")]
+    [ProvideMenuResource("Menus.ctmenu", 1)]
+    [ProvideToolWindow(typeof(ReverseFunctionWindow))]
     public sealed class CFlowPackage : Package, IVsUpdateSolutionEvents2
     {
         /// <summary>
@@ -74,12 +76,12 @@ namespace CFlow
         {
             base.Initialize();
 
-            statusService = ATServiceProvider.StatusService;
-            dte = GetService(typeof(DTE)) as DTE;
+            Dte = GetService(typeof(DTE)) as DTE;
             
             solutionBuildManager = ServiceProvider.GlobalProvider.GetService(typeof(SVsSolutionBuildManager)) as IVsSolutionBuildManager2;
             if (solutionBuildManager != null)
                 solutionBuildManager.AdviseUpdateSolutionEvents(this, out updateSolutionEventsCookie);
+            ReverseFunctionWindowCommand.Initialize(this);
 
         }
 
@@ -91,8 +93,7 @@ namespace CFlow
                 solutionBuildManager.UnadviseUpdateSolutionEvents(updateSolutionEventsCookie);
         }
 
-        private IStatusReportService statusService;
-        private DTE dte;
+        public DTE Dte;
         private IVsSolutionBuildManager2 solutionBuildManager;
         private uint updateSolutionEventsCookie;
 
@@ -101,15 +102,6 @@ namespace CFlow
         {
             get { return cflow ?? (cflow = GetCFlowLocation()); }
             set { cflow = value; }
-        }
-
-        private void Log(string message, StatusSeverity severity = StatusSeverity.INFO)
-        {
-            statusService.WriteOutputWindow(message, "CFlow", severity);
-        }
-        private void Log(object o, StatusSeverity severity = StatusSeverity.INFO)
-        {
-            Log(o.ToString(), severity);
         }
 
         private string GetCFlowLocation()
@@ -123,9 +115,9 @@ namespace CFlow
             var fullPath = Path.Combine(self.InstallPath, cflow.RelativePath);
 
             if (File.Exists(fullPath))
-                Log($"Found CFlow at '{ fullPath }'");
+                VSHelper.Log($"Found CFlow at '{ fullPath }'");
             else
-                Log($"Failed to find CFlow at '{ fullPath }'");
+                VSHelper.Log($"Failed to find CFlow at '{ fullPath }'");
 
             return fullPath;
             
@@ -133,8 +125,8 @@ namespace CFlow
 
         private void UpdateProject(string name)
         {
-            Log($"Build finished notification for '{ name }'");
-            var projects = VSHelper.GetProjects(dte);
+            VSHelper.Log($"Build finished notification for '{ name }'");
+            var projects = VSHelper.GetProjects(Dte);
 
             var project = projects.Where(p => p.Name.Equals(name)).First();
 
@@ -155,15 +147,15 @@ namespace CFlow
             var tree_output = tree_runner.Run();
             var xref_output = xref_runner.Run();
 
-            Log("############################# Tree  Output ###########################");
-            Log(tree_output);
-            Log("######################################################################");
-            Log("########################### Reverse Output ###########################");
-            Log(reverse_output);
-            Log("######################################################################");
-            Log("########################### XREF    Output ###########################");
-            Log(xref_output);
-            Log("######################################################################");
+            VSHelper.Log("############################# Tree  Output ###########################");
+            VSHelper.Log(tree_output);
+            VSHelper.Log("######################################################################");
+            VSHelper.Log("########################### Reverse Output ###########################");
+            VSHelper.Log(reverse_output);
+            VSHelper.Log("######################################################################");
+            VSHelper.Log("########################### XREF    Output ###########################");
+            VSHelper.Log(xref_output);
+            VSHelper.Log("######################################################################");
 
 
             var tree_results = Parser.CFlowReverseParser.Parse(new List<string>(tree_output.Split(new string[] { Environment.NewLine }, StringSplitOptions.None)));

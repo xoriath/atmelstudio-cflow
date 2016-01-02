@@ -67,8 +67,18 @@
     <Compile Include="CFlow.Parser\CFlow.ReverseParser.cs" />
     <Compile Include="CFlow.Parser\CFlow.ParseFragment.cs" />
     <Compile Include="CFlow.Parser\CFlow.XrefParser.cs" />
+    <Compile Include="Function.Reverse\FunctionEdge.cs" />
+    <Compile Include="Function.Reverse\FunctionGraph.cs" />
+    <Compile Include="Function.Reverse\FunctionGraphLayout.cs" />
+    <Compile Include="Function.Reverse\FunctionVertex.cs" />
+    <Compile Include="Function.Reverse\FunctionViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="CFlow.Parser\CFlow.XrefFunction.cs" />
+    <Compile Include="Function.Reverse\ReverseFunctionWindow.cs" />
+    <Compile Include="Function.Reverse\ReverseFunctionWindowCommand.cs" />
+    <Compile Include="Function.Reverse\ReverseFunctionWindowControl.xaml.cs">
+      <DependentUpon>ReverseFunctionWindowControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="VSHelper.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -320,6 +330,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="CFlow.Assets\cflow-1.4\build-aux\link-warning.h" />
+    <VSCTCompile Include="CFlowPackage.vsct">
+      <ResourceName>Menus.ctmenu</ResourceName>
+    </VSCTCompile>
+    <Content Include="Resources\ReverseFunctionWindowCommand.png" />
     <None Include="CFlow.Assets\cflow-1.4\config.h" />
     <Content Include="CFlow.Assets\cflow-1.4\doc\ack.c" />
     <Content Include="CFlow.Assets\cflow-1.4\doc\d.c" />
@@ -445,6 +459,14 @@
     <Reference Include="EnvDTE90, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
       <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
+    <Reference Include="GraphSharp, Version=1.0.2.0, Culture=neutral, PublicKeyToken=f9c24778325a6b82, processorArchitecture=MSIL">
+      <HintPath>..\packages\GraphSharp.1.0.2.0\lib\net35\GraphSharp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="GraphSharp.Controls, Version=1.0.2.0, Culture=neutral, PublicKeyToken=f9c24778325a6b82, processorArchitecture=MSIL">
+      <HintPath>..\packages\GraphSharp.1.0.2.0\lib\net35\GraphSharp.Controls.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.Build.Framework" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.VisualStudio.CommandBars, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
@@ -551,6 +573,26 @@
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="QuickGraph, Version=3.3.51106.0, Culture=neutral, PublicKeyToken=f3fb40175eec2af3, processorArchitecture=MSIL">
+      <HintPath>..\packages\QuickGraph.3.3.51106.0\lib\net35\QuickGraph.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="QuickGraph.Data, Version=3.3.51106.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\QuickGraph.3.3.51106.0\lib\net35\QuickGraph.Data.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="QuickGraph.Data.Contracts, Version=3.3.51106.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\QuickGraph.3.3.51106.0\lib\net35\CodeContracts\QuickGraph.Data.Contracts.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="QuickGraph.Graphviz, Version=3.3.51106.0, Culture=neutral, PublicKeyToken=f3fb40175eec2af3, processorArchitecture=MSIL">
+      <HintPath>..\packages\QuickGraph.3.3.51106.0\lib\net35\QuickGraph.Graphviz.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="QuickGraph.Graphviz.Contracts, Version=3.3.51106.0, Culture=neutral, PublicKeyToken=f3fb40175eec2af3, processorArchitecture=MSIL">
+      <HintPath>..\packages\QuickGraph.3.3.51106.0\lib\net35\CodeContracts\QuickGraph.Graphviz.Contracts.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="stdole, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
       <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
@@ -564,12 +606,22 @@
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml" />
     <Reference Include="WindowsBase" />
+    <Reference Include="WPFExtensions, Version=1.0.3437.34043, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\WPFExtensions.1.0.0\lib\WPFExtensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="VSPackage.resx">
       <MergeWithCTO>true</MergeWithCTO>
       <ManifestResourceName>VSPackage</ManifestResourceName>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Function.Reverse\ReverseFunctionWindowControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(VSToolsPath)\VSSDK\Microsoft.VsSDK.targets" Condition="'$(VSToolsPath)' != ''" />

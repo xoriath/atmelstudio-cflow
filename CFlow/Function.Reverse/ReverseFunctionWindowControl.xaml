@@ -1,0 +1,65 @@
+﻿<UserControl x:Class="CFlow.ReverseFunctionWindowControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             Background="{DynamicResource VsBrush.Window}"
+             Foreground="{DynamicResource VsBrush.WindowText}"
+             mc:Ignorable="d"
+             d:DesignHeight="300" d:DesignWidth="300"
+             Name="MyToolWindow"
+             xmlns:graphsharp="clr-namespace:GraphSharp.Controls;assembly=GraphSharp.Controls"
+             xmlns:cflow="clr-namespace:CFlow">
+    <UserControl.Resources>
+        <DataTemplate x:Key="vertexTemplate" DataType="{x:Type cflow:FunctionVertex}">
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <TextBlock Text="{Binding Path=Name, Mode=OneWay}" Foreground="White" />
+            </StackPanel>
+        </DataTemplate>
+        
+        <Style TargetType="{x:Type graphsharp:VertexControl}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type graphsharp:VertexControl}">
+                        <Border BorderBrush="White" 
+                        Background="Black"
+            BorderThickness="2"
+            CornerRadius="10,10,10,10"
+            Padding="{TemplateBinding Padding}">
+                            <ContentPresenter Content="{TemplateBinding Vertex}" 
+                            ContentTemplate="{StaticResource vertexTemplate}"/>
+
+                            <Border.Effect>
+                                <DropShadowEffect BlurRadius="2" Color="LightGray" 
+                            Opacity="0.3" Direction="315"/>
+                            </Border.Effect>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style TargetType="{x:Type graphsharp:EdgeControl}">
+            <Style.Resources>
+                <ToolTip x:Key="ToolTipContent">
+                    <StackPanel>
+                        <TextBlock FontWeight="Bold" Text="Edge.ID"/>
+                        <TextBlock Text="{Binding ID}"/>
+                    </StackPanel>
+                </ToolTip>
+            </Style.Resources>
+            <Setter Property="ToolTip" Value="{StaticResource ToolTipContent}"/>
+        </Style>
+    </UserControl.Resources>
+    <Grid>
+        <StackPanel Orientation="Vertical">
+            <TextBlock Margin="10" HorizontalAlignment="Center">ReverseFunctionWindow</TextBlock>
+            <Button Content="Click me!" Click="button1_Click" Width="120" Height="25" Name="button1" Margin="90,4"/>
+            <!--<ZoomControl xmlns="clr-namespace:WPFExtensions.Controls;assembly=WPFExtensions"  Zoom="0.2" ZoomBoxOpacity="0.5" Background="#ff656565">-->
+
+            <cflow:FunctionGraphLayout x:Name="graphLayout" Margin="10" LayoutAlgorithmType="{Binding Path=LayoutAlgorithmType}" Graph="{Binding Path=Graph}"/>
+
+            <!--</ZoomControl>-->
+        </StackPanel>
+    </Grid>
+</UserControl>
