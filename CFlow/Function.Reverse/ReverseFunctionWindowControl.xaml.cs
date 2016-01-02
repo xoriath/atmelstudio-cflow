@@ -27,12 +27,8 @@ namespace CFlow
         /// </summary>
         public ReverseFunctionWindowControl()
         {
-           
             InitializeComponent();
             ZoomControl.SetViewFinderVisibility(Zoomctrl, Visibility.Visible);
-
-
-            Loaded += button1_Click;
         }
             
         
