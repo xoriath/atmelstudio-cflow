@@ -1,0 +1,538 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Sergey Poznyakoff
+# This file is distributed under the same license as the GNU cflow package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: GNU cflow 1.5\n"
+"Report-Msgid-Bugs-To: bug-cflow@gnu.org\n"
+"POT-Creation-Date: 2016-05-17 00:09+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: src/c.l:152
+msgid "unterminated string?"
+msgstr ""
+
+#: src/c.l:336
+#, c-format
+msgid "Command line: %s\n"
+msgstr ""
+
+#: src/c.l:339
+#, c-format
+msgid "cannot execute `%s'"
+msgstr ""
+
+#: src/c.l:394 src/rc.c:58
+#, c-format
+msgid "cannot open `%s'"
+msgstr ""
+
+#: src/c.l:475
+#, c-format
+msgid "New location: %s:%d\n"
+msgstr ""
+
+#: src/main.c:27
+msgid "generate a program flowgraph"
+msgstr ""
+
+#: src/main.c:29
+msgid ""
+"* The effect of each option marked with an asterisk is reversed if the "
+"option's long name is prefixed with `no-'. For example, --no-cpp cancels --"
+"cpp."
+msgstr ""
+
+#: src/main.c:60
+msgid "General options:"
+msgstr ""
+
+#: src/main.c:61 src/main.c:102
+msgid "NUMBER"
+msgstr ""
+
+#: src/main.c:62
+msgid "Set the depth at which the flowgraph is cut off"
+msgstr ""
+
+#: src/main.c:63
+msgid "CLASSES"
+msgstr ""
+
+#: src/main.c:64
+msgid ""
+"Include specified classes of symbols (see below). Prepend CLASSES with ^ or "
+"- to exclude them from the output"
+msgstr ""
+
+#: src/main.c:65 src/main.c:106 src/main.c:110 gnu/argp-parse.c:85
+msgid "NAME"
+msgstr ""
+
+#: src/main.c:66
+msgid ""
+"Use given output format NAME. Valid names are `gnu' (default) and `posix'"
+msgstr ""
+
+#: src/main.c:69
+msgid "* Print reverse call tree"
+msgstr ""
+
+#: src/main.c:71
+msgid "Produce cross-reference listing only"
+msgstr ""
+
+#: src/main.c:72
+msgid "OPT"
+msgstr ""
+
+#: src/main.c:73
+msgid ""
+"Set printing option to OPT. Valid OPT values are: xref (or cross-ref), tree. "
+"Any unambiguous abbreviation of the above is also accepted"
+msgstr ""
+
+#: src/main.c:75
+msgid "FILE"
+msgstr ""
+
+#: src/main.c:76
+msgid "Set output file name (default -, meaning stdout)"
+msgstr ""
+
+#: src/main.c:79
+msgid "Symbols classes for --include argument"
+msgstr ""
+
+#: src/main.c:81
+msgid "all data symbols, both external and static"
+msgstr ""
+
+#: src/main.c:83
+msgid "symbols whose names begin with an underscore"
+msgstr ""
+
+#: src/main.c:85
+msgid "static symbols"
+msgstr ""
+
+#: src/main.c:87
+msgid "typedefs (for cross-references only)"
+msgstr ""
+
+#: src/main.c:93
+msgid "Parser control:"
+msgstr ""
+
+#: src/main.c:95
+msgid "* Rely on indentation"
+msgstr ""
+
+#: src/main.c:99
+msgid "* Accept only sources in ANSI C"
+msgstr ""
+
+#: src/main.c:103
+msgid "Set initial token stack size to NUMBER"
+msgstr ""
+
+#: src/main.c:104
+msgid "SYMBOL:[=]TYPE"
+msgstr ""
+
+#: src/main.c:105
+msgid ""
+"Register SYMBOL with given TYPE, or define an alias (if := is used). Valid "
+"types are: keyword (or kw), modifier, qualifier, identifier, type, wrapper. "
+"Any unambiguous abbreviation of the above is also accepted"
+msgstr ""
+
+#: src/main.c:107
+msgid "Assume main function to be called NAME"
+msgstr ""
+
+#: src/main.c:108
+msgid "NAME[=DEFN]"
+msgstr ""
+
+#: src/main.c:109
+msgid "Predefine NAME as a macro"
+msgstr ""
+
+#: src/main.c:111
+msgid "Cancel any previous definition of NAME"
+msgstr ""
+
+#: src/main.c:112
+msgid "DIR"
+msgstr ""
+
+#: src/main.c:113
+msgid ""
+"Add the directory DIR to the list of directories to be searched for header "
+"files."
+msgstr ""
+
+#: src/main.c:114
+msgid "COMMAND"
+msgstr ""
+
+#: src/main.c:115
+msgid "* Run the specified preprocessor command"
+msgstr ""
+
+#: src/main.c:123
+msgid "Output control:"
+msgstr ""
+
+#: src/main.c:125
+msgid "* Print line numbers"
+msgstr ""
+
+#: src/main.c:129
+msgid "* Print nesting level along with the call tree"
+msgstr ""
+
+#: src/main.c:133
+msgid "Control graph appearance"
+msgstr ""
+
+#: src/main.c:135
+msgid "* Draw ASCII art tree"
+msgstr ""
+
+#: src/main.c:139
+msgid "* Brief output"
+msgstr ""
+
+#: src/main.c:143
+msgid "* Additionally format output for use with GNU Emacs"
+msgstr ""
+
+#: src/main.c:147
+msgid "* Do not print argument lists in function declarations"
+msgstr ""
+
+#: src/main.c:151
+msgid "* Do not print symbol names in declaration strings"
+msgstr ""
+
+#: src/main.c:157
+msgid "Informational options:"
+msgstr ""
+
+#: src/main.c:159
+msgid "* Verbose error diagnostics"
+msgstr ""
+
+#: src/main.c:163
+msgid "Set debugging level"
+msgstr ""
+
+#: src/main.c:265
+#, c-format
+msgid "%s: no symbol type supplied"
+msgstr ""
+
+#: src/main.c:285
+#, c-format
+msgid "unknown symbol type: %s"
+msgstr ""
+
+#: src/main.c:311
+#, c-format
+msgid "unknown print option: %s"
+msgstr ""
+
+#: src/main.c:435 src/main.c:442
+#, c-format
+msgid "level indent string is too long"
+msgstr ""
+
+#: src/main.c:468
+#, c-format
+msgid "level-indent syntax"
+msgstr ""
+
+#: src/main.c:490
+#, c-format
+msgid "unknown level indent option: %s"
+msgstr ""
+
+#: src/main.c:567
+#, c-format
+msgid "%s: No such output driver"
+msgstr ""
+
+#: src/main.c:595
+#, c-format
+msgid "Unknown symbol class: %c"
+msgstr ""
+
+#: src/main.c:675
+msgid "[FILE]..."
+msgstr ""
+
+#: src/main.c:722
+#, c-format
+msgid "Exiting"
+msgstr ""
+
+#: src/main.c:767
+#, c-format
+msgid "INTERNAL ERROR: %s: No such output driver"
+msgstr ""
+
+#: src/main.c:806
+#, c-format
+msgid "no input files"
+msgstr ""
+
+#: src/parser.c:209
+#, c-format
+msgid " near "
+msgstr ""
+
+#: src/parser.c:312
+#, c-format
+msgid "INTERNAL ERROR: cannot return token to stream"
+msgstr ""
+
+#: src/parser.c:389
+msgid "unrecognized definition"
+msgstr ""
+
+#: src/parser.c:538 src/parser.c:664 src/parser.c:765
+msgid "unexpected end of file in declaration"
+msgstr ""
+
+#: src/parser.c:589
+msgid "unexpected end of file in expression"
+msgstr ""
+
+#: src/parser.c:645 src/parser.c:740
+msgid "expected `;'"
+msgstr ""
+
+#: src/parser.c:693
+msgid "missing `;' after struct declaration"
+msgstr ""
+
+#: src/parser.c:787
+msgid "unexpected end of file in initializer list"
+msgstr ""
+
+#: src/parser.c:817 src/parser.c:824
+msgid "unexpected end of file in struct"
+msgstr ""
+
+#: src/parser.c:871 src/parser.c:936
+msgid "unexpected end of file in function declaration"
+msgstr ""
+
+#: src/parser.c:903 src/parser.c:926
+msgid "expected `)'"
+msgstr ""
+
+#: src/parser.c:998
+msgid "unexpected token in parameter list"
+msgstr ""
+
+#: src/parser.c:1014
+msgid "unexpected end of file in parameter list"
+msgstr ""
+
+#: src/parser.c:1052
+msgid "forced function body close"
+msgstr ""
+
+#: src/parser.c:1066
+msgid "unexpected end of file in function body"
+msgstr ""
+
+#: src/parser.c:1163
+#, c-format
+msgid "%s/%d redefined"
+msgstr ""
+
+#: src/parser.c:1167
+#, c-format
+msgid "%s redefined"
+msgstr ""
+
+#: src/parser.c:1170
+#, c-format
+msgid "this is the place of previous definition"
+msgstr ""
+
+#: src/parser.c:1184
+#, c-format
+msgid "%s:%d: %s/%d defined to %s\n"
+msgstr ""
+
+#: src/parser.c:1209
+#, c-format
+msgid "%s:%d: type %s\n"
+msgstr ""
+
+#: gnu/argp-help.c:150
+#, c-format
+msgid "ARGP_HELP_FMT: %s value is less than or equal to %s"
+msgstr ""
+
+#: gnu/argp-help.c:223
+#, c-format
+msgid "%.*s: ARGP_HELP_FMT parameter requires a value"
+msgstr ""
+
+#: gnu/argp-help.c:229
+#, c-format
+msgid "%.*s: ARGP_HELP_FMT parameter must be positive"
+msgstr ""
+
+#: gnu/argp-help.c:238
+#, c-format
+msgid "%.*s: Unknown ARGP_HELP_FMT parameter"
+msgstr ""
+
+#: gnu/argp-help.c:250
+#, c-format
+msgid "Garbage in ARGP_HELP_FMT: %s"
+msgstr ""
+
+#: gnu/argp-help.c:1250
+msgid ""
+"Mandatory or optional arguments to long options are also mandatory or "
+"optional for any corresponding short options."
+msgstr ""
+
+#: gnu/argp-help.c:1643
+msgid "Usage:"
+msgstr ""
+
+#: gnu/argp-help.c:1647
+msgid "  or: "
+msgstr ""
+
+#: gnu/argp-help.c:1659
+msgid " [OPTION...]"
+msgstr ""
+
+#: gnu/argp-help.c:1686
+#, c-format
+msgid "Try '%s --help' or '%s --usage' for more information.\n"
+msgstr ""
+
+#: gnu/argp-help.c:1714
+#, c-format
+msgid "Report bugs to %s.\n"
+msgstr ""
+
+#: gnu/argp-help.c:1933 gnu/error.c:190
+msgid "Unknown system error"
+msgstr ""
+
+#: gnu/argp-parse.c:83
+msgid "give this help list"
+msgstr ""
+
+#: gnu/argp-parse.c:84
+msgid "give a short usage message"
+msgstr ""
+
+#: gnu/argp-parse.c:85
+msgid "set the program name"
+msgstr ""
+
+#: gnu/argp-parse.c:86
+msgid "SECS"
+msgstr ""
+
+#: gnu/argp-parse.c:87
+msgid "hang for SECS seconds (default 3600)"
+msgstr ""
+
+#: gnu/argp-parse.c:144
+msgid "print program version"
+msgstr ""
+
+#: gnu/argp-parse.c:161
+msgid "(PROGRAM ERROR) No version known!?"
+msgstr ""
+
+#: gnu/argp-parse.c:614
+#, c-format
+msgid "%s: Too many arguments\n"
+msgstr ""
+
+#: gnu/argp-parse.c:757
+msgid "(PROGRAM ERROR) Option should have been recognized!?"
+msgstr ""
+
+#: gnu/getopt.c:549 gnu/getopt.c:578
+#, c-format
+msgid "%s: option '%s' is ambiguous; possibilities:"
+msgstr ""
+
+#: gnu/getopt.c:626 gnu/getopt.c:630
+#, c-format
+msgid "%s: option '--%s' doesn't allow an argument\n"
+msgstr ""
+
+#: gnu/getopt.c:639 gnu/getopt.c:644
+#, c-format
+msgid "%s: option '%c%s' doesn't allow an argument\n"
+msgstr ""
+
+#: gnu/getopt.c:687 gnu/getopt.c:706
+#, c-format
+msgid "%s: option '--%s' requires an argument\n"
+msgstr ""
+
+#: gnu/getopt.c:744 gnu/getopt.c:747
+#, c-format
+msgid "%s: unrecognized option '--%s'\n"
+msgstr ""
+
+#: gnu/getopt.c:755 gnu/getopt.c:758
+#, c-format
+msgid "%s: unrecognized option '%c%s'\n"
+msgstr ""
+
+#: gnu/getopt.c:807 gnu/getopt.c:810
+#, c-format
+msgid "%s: invalid option -- '%c'\n"
+msgstr ""
+
+#: gnu/getopt.c:863 gnu/getopt.c:880 gnu/getopt.c:1090 gnu/getopt.c:1108
+#, c-format
+msgid "%s: option requires an argument -- '%c'\n"
+msgstr ""
+
+#: gnu/getopt.c:936 gnu/getopt.c:952
+#, c-format
+msgid "%s: option '-W %s' is ambiguous\n"
+msgstr ""
+
+#: gnu/getopt.c:976 gnu/getopt.c:994
+#, c-format
+msgid "%s: option '-W %s' doesn't allow an argument\n"
+msgstr ""
+
+#: gnu/getopt.c:1015 gnu/getopt.c:1033
+#, c-format
+msgid "%s: option '-W %s' requires an argument\n"
+msgstr ""
+
+#: gnu/obstack.c:415 gnu/obstack.c:417
+msgid "memory exhausted"
+msgstr ""
