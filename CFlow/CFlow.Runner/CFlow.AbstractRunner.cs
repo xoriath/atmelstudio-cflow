@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.IO;
+using CFlow.CFlow.Runner;
+using System.Threading.Tasks;
 
 namespace CFlow.Runner
 {
@@ -10,7 +12,7 @@ namespace CFlow.Runner
     {
         private string CFlow;
 
-        private string WorkingDir;
+        public string BaseDir { get; private set; }
 
         public List<string> Files { get; private set; }
 
@@ -25,12 +27,12 @@ namespace CFlow.Runner
                 where Files.All(f => f.StartsWith(possibleMatch))
                 select possibleMatch;
 
-            WorkingDir = Path.GetDirectoryName(MatchingChars.First());
+            BaseDir = Path.GetDirectoryName(MatchingChars.First());
 
-            Files = Files.Select(f => f.Remove(0, WorkingDir.Length + 1)).ToList();
+            Files = Files.Select(f => f.Remove(0, BaseDir.Length + 1)).ToList();
         }
         
-        public string Run()
+        public async Task<string> Run()
         {
             var tempFile = Path.Combine(Path.GetTempPath(), Path.GetRandomFileName());
             var startInfo = new ProcessStartInfo
@@ -39,13 +41,13 @@ namespace CFlow.Runner
                 FileName = CFlow,
                 UseShellExecute = false,
                 CreateNoWindow = false,
-                WorkingDirectory = WorkingDir
+                WorkingDirectory = BaseDir
             };
 
             var process = new Process { StartInfo = startInfo };
             process.Start();
 
-            process.WaitForExit();
+            await process.WaitForExitAsync();
 
             if (process.ExitCode != 0)
                 return string.Empty;

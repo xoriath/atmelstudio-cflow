@@ -1,8 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace CFlow.Parser
 {
-    public class FunctionNode
+    public class FunctionNode 
     {
         public Function Function { get; private set; }
 
@@ -24,6 +25,29 @@ namespace CFlow.Parser
         public override string ToString()
         {
             return $"{ Function } => { Children.Count } children";
+        }
+
+        public override int GetHashCode()
+        {
+            return Function.GetHashCode();
+        }
+
+        public override bool Equals(object obj)
+        {
+            return Function.Equals(obj);
+        }
+    }
+
+    public class FunctionNodeEqualityComparer : IEqualityComparer<FunctionNode>
+    {
+        bool IEqualityComparer<FunctionNode>.Equals(FunctionNode x, FunctionNode y)
+        {
+            return x.Function.Equals(y.Function);
+        }
+
+        int IEqualityComparer<FunctionNode>.GetHashCode(FunctionNode obj)
+        {
+            return obj.Function.GetHashCode();
         }
     }
 

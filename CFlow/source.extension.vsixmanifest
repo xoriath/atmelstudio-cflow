@@ -1,23 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
-  <Metadata>
-    <Identity Id="CFlow.Morten Engelhardt Olsen.d8f9f542-e05d-4939-a76e-73211eca9cda" Version="1.0" Language="en-US" Publisher="Morten Engelhardt Olsen" />
-    <DisplayName>CFlow</DisplayName>
-    <Description xml:space="preserve">GNU CFlow intergration for Atmel Studio</Description>
-    <MoreInfo>https://github.com/xoriath/atmelstudio-cflow</MoreInfo>
-    <GettingStartedGuide>https://github.com/xoriath/atmelstudio-cflow</GettingStartedGuide>
-    <ReleaseNotes>https://github.com/xoriath/atmelstudio-cflow</ReleaseNotes>
-  </Metadata>
-  <Installation>
-    <InstallationTarget Id="AtmelStudio" Version="7.0" />
-  </Installation>
-  <Dependencies>
-    <Dependency Id="Microsoft.Framework.NDP" DisplayName="Microsoft .NET Framework" d:Source="Manual" Version="[4.5,)" />
-    <Dependency Id="Microsoft.VisualStudio.MPF.14.0" DisplayName="Visual Studio MPF 14.0" d:Source="Installed" Version="[14.0]" />
-  </Dependencies>
-  <Assets>
-
-    <Asset Type="Microsoft.VisualStudio.VsPackage" d:Source="Project" d:ProjectName="%CurrentProject%" Path="|%CurrentProject%;PkgdefProjectOutputGroup|" />
-    <Asset Type="CFlow.Executable" d:Source="File" Path="CFlow.Assets\cflow.exe" />
-  </Assets>
-</PackageManifest>
+<Vsix xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="1.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2010">
+    <Identifier Id="d8f9f542-e05d-4939-a76e-73211eca9cda">
+        <Name>Call Graph</Name>
+        <Author>Morten Engelhardt Olsen</Author>
+        <Version>1.0</Version>
+        <Description xml:space="preserve">GNU CFlow intergration for Atmel Studio</Description>
+        <Locale>1033</Locale>
+        <MoreInfoUrl>https://github.com/xoriath/atmelstudio-cflow</MoreInfoUrl>
+        <License>License.txt</License>
+        <GettingStartedGuide>https://github.com/xoriath/atmelstudio-cflow</GettingStartedGuide>
+        <PreviewImage></PreviewImage>
+        <InstalledByMsi>false</InstalledByMsi>
+        <SupportedProducts>
+            <IsolatedShell Version="7.0">AtmelStudio</IsolatedShell>
+        </SupportedProducts>
+        <SupportedFrameworkRuntimeEdition MinVersion="4.0" MaxVersion="4.5" />
+    </Identifier>
+    <References>
+    </References>
+    <Content>
+        <MefComponent>|%CurrentProject%|</MefComponent>
+        <CustomExtension Type="CFlow.Executable">CFlow.Assets\cflow.exe</CustomExtension>
+    </Content>
+</Vsix>

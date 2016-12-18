@@ -133,7 +133,7 @@ namespace CFlow
             UpdateProject(project);
         }
 
-        private void UpdateProject(Project project)
+        private async void UpdateProject(Project project)
         {
             // TODO: Should get resolved include files as well (to resolve IO headers)
             var files = VSHelper.GetFiles(project);
@@ -143,9 +143,9 @@ namespace CFlow
             var tree_runner = new Runner.TreeRunner(CFlow, files);
             var xref_runner = new Runner.XrefRunner(CFlow, files);
 
-            var reverse_output = reverse_runner.Run();
-            var tree_output = tree_runner.Run();
-            var xref_output = xref_runner.Run();
+            var reverse_output = await reverse_runner.Run();
+            var tree_output = await tree_runner.Run();
+            var xref_output = await xref_runner.Run();
 
             VSHelper.Log("############################# Tree  Output ###########################");
             VSHelper.Log(tree_output);

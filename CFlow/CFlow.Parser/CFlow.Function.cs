@@ -6,7 +6,7 @@
 
         public string Signature { get; private set; }
 
-        public string File { get; private set; }
+        public string File { get; set; }
 
         public uint Line { get; private set; }
 
